@@ -5,7 +5,7 @@ LABEL description "This container will verify linchpin works under Centos7"
 ENV HOME=/root
 WORKDIR $HOME
 
-COPY centos7/centos7-pike.repo /etc/yum.repos.d/centos7-pike.repo
+COPY ./config/Dockerfiles/centos7/centos7-pike.repo /etc/yum.repos.d/centos7-pike.repo
 RUN yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN yum -y install python-pip \
     && pip install -U pip \
@@ -43,7 +43,7 @@ RUN curl -o /etc/yum.repos.d/beaker-client.repo \
     yum -y install beaker-client \
     && yum clean all && rm -rf /var/cache/yum;
 
-COPY centos7/default.xml /etc/libvirt/qemu/networks/
+COPY ./config/Dockerfiles/centos7/default.xml /etc/libvirt/qemu/networks/
 
 RUN mkdir -p $HOME/.config
 
