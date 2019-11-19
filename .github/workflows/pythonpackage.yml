@@ -34,4 +34,6 @@ jobs:
         python setup.py test
     - name: Build build fedora30
       run: docker build . --file ./config/Dockerfiles/fedora30/Dockerfile --tag myfedora30:latest
+    - name: Build build centos7
+      run: docker build . --file ./config/Dockerfiles/centos7/Dockerfile --tag centos7:latest
 
