@@ -29,7 +29,7 @@ jobs:
         pip3 install .[test]
     - name: Lint with flake8
       run: |
-        pip install flake8
+        pip3 install flake8
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
@@ -37,8 +37,8 @@ jobs:
     - name: Test with pytest
       run: |
         python setup.py test
-    - name: Build build fedora30
-      run: docker build . --file ./config/Dockerfiles/fedora30/Dockerfile --tag myfedora30:latest
-    - name: Build build centos7
-      run: docker build . --file ./config/Dockerfiles/centos7/Dockerfile --tag centos7:latest
+#    - name: Build build fedora30
+#      run: docker build . --file ./config/Dockerfiles/fedora30/Dockerfile --tag myfedora30:latest
+#    - name: Build build centos7
+#      run: docker build . --file ./config/Dockerfiles/centos7/Dockerfile --tag centos7:latest
 
