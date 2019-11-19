@@ -27,8 +27,7 @@ jobs:
         #        python -m pip install --upgrade pip
         pip3 install -r requirements.txt
         pip3 install .[test]
-    - name: Lint with flake8
-      run: |
+        pip3 install setuptools
         pip3 install flake8
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
@@ -36,7 +35,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        python setup.py test
+        python3 setup.py test
 #    - name: Build build fedora30
 #      run: docker build . --file ./config/Dockerfiles/fedora30/Dockerfile --tag myfedora30:latest
 #    - name: Build build centos7
