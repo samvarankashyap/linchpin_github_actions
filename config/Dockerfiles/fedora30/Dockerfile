@@ -37,7 +37,7 @@ RUN curl -o /etc/yum.repos.d/beaker-client.repo \
     dnf -y install beaker-client; \
     dnf clean all
 
-COPY init_libvirt.sh $HOME/
+COPY ./config/Dockerfiles/init_libvirt.sh $HOME/
 
 RUN pip install -U pip; \
     pip install -U setuptools; \
