@@ -16,6 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         dnf install -y python3-pip
+        dnf install -y python3-devel gcc
         pip3 install -r requirements.txt --ignore-installed
         pip3 install .[test] --ignore-installed
     - name: Lint with flake8
