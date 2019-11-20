@@ -15,8 +15,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: |
-        yum install -y epel-release
-        yum install -y python3-pip
+        dnf install -y python3-pip
         pip3 install -r requirements.txt --ignore-installed
         pip3 install .[test] --ignore-installed
     - name: Lint with flake8
