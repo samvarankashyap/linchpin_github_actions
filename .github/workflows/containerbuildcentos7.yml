@@ -1,4 +1,4 @@
-name: Python package
+name: containerbuildcentos7
 
 on: [pull_request]
 
