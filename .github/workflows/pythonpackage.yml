@@ -18,8 +18,8 @@ jobs:
         yum install -y epel-release
         yum install -y python-pip
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install .[test]
+        pip install -r requirements.txt --ignore-installed
+        pip install .[test] --ignore-installed
     - name: Lint with flake8
       run: |
         pip install flake8
