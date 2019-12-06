@@ -1,0 +1,21 @@
+FROM fedora:30
+LABEL maintainer "https://github.com/CentOS-PaaS-SIG/linchpin"
+LABEL description "This container will verify linchpin works under fedora30"
+
+
+RUN ln -s /usr/bin/python2.7 /usr/bin/python
+
+RUN dnf -y install python-pip ansible curl gcc python-devel \
+                   openssl-devel libvirt-daemon-driver-* libvirt-daemon \
+                   libvirt-daemon-kvm qemu-kvm libvirt-daemon-config-network \
+                   libvirt-python libvirt-devel redhat-rpm-config file \
+                   openssh genisoimage libvirt-client virt-install net-tools \
+                   python-krbV make libxslt-python krb5-workstation jq buildah \
+                   libselinux-python git \
+    && dnf clean all;
+RUN pip install -U pip; \
+    pip install -U setuptools; \
+    pip install -U pygithub; \
+# /workdir should include the source code of linchpin
+VOLUME [ "/workdir" ]
+CMD ["/usr/bin/tail"]
