@@ -1,24 +1,12 @@
-name: Flake8 on PR
-
-on: [push]
-
+on: push
+name: on push
 jobs:
-  build:
-
+  gitHubActionForFlake8:
+    name: GitHub Action for Flake8
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
-    - name: Run flake8 on your PR - with annotations!
-      uses: tayfun/flake8-your-pr@1.0.1
+    - uses: actions/checkout@master
+    - name: GitHub Action for Flake8
+      uses: cclauss/GitHub-Action-for-Flake8@master
       with:
-        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-      
+        args: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
