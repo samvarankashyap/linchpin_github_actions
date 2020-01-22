@@ -18,4 +18,7 @@ jobs:
     - name: Run flake8 on your PR - with annotations!
       uses: tayfun/flake8-your-pr@1.0.1
       with:
-        repo-token: ${{ secrets.MY_GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+      
