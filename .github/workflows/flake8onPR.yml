@@ -17,3 +17,5 @@ jobs:
         echo test, and deploy your project.
     - name: Run flake8 on your PR - with annotations!
       uses: tayfun/flake8-your-pr@1.0.1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
