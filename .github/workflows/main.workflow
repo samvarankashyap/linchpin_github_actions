@@ -4,6 +4,6 @@ workflow "New workflow" {
 }
 
 action "Upgrade to Python 3" {
-  secrets = ["GITHUB_TOKEN"]
+  secrets = ["MY_GITHUB_TOKEN"]
   uses = "cclauss/Upgrade-to-Python3@master"
 }
