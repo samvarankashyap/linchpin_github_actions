@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 echo "Hello this is first attempt to run bash script on github actions"
+OS=$(cat /etc/*release | grep ^NAME | tr -d 'NAME="') 
+echo $OS
 if /bin/grep -iq centos "/etc/os-release"; then
   echo "This is a centos machine"
   yum install -y epel-release;
