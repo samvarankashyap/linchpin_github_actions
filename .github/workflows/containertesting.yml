@@ -13,6 +13,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: cat /etc/centos-release
+    - run: |
+        yum install python-pip;
+        yum install python3-pip;
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
