@@ -9,5 +9,5 @@ then
     yum install -y python3-pip python3-flake8;
 else
     echo "This is fedora"
-    yum install -y python3-pip python3-flake8;
+    yum install -y python3-pip python3-flake8 python3-devel gcc;
 fi
