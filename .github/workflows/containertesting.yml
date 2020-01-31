@@ -9,9 +9,23 @@ jobs:
     container: ${{ matrix.container }}
     strategy:
       matrix:
-        container: [ 'centos:7', 'centos:8' ]
+        container: [ 'centos:7', 'centos:8', 'fedora:30', 'fedora:31' ]
     steps:
+    - uses: actions/checkout@v2
     - run: cat /etc/centos-release
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install .[test]
+        pip install zipp>=0.5
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 --exclude=\.eggs,tests,docs,config/Dockerfiles --ignore=E124,E303,W504 --max-line-length 80 .
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        $(which python) setup.py test
 
 #jobs:
 #  build:
