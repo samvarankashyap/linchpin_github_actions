@@ -18,13 +18,12 @@ jobs:
         yum install -y python3-pip;
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install .[test]
-        pip install zipp>=0.5
+        pip3 install -r requirements.txt
+        pip3 install .[test]
+        pip3 install zipp>=0.5
     - name: Lint with flake8
       run: |
-        pip install flake8
+        pip3 install flake8
         # stop the build if there are Python syntax errors or undefined names
         flake8 --exclude=\.eggs,tests,docs,config/Dockerfiles --ignore=E124,E303,W504 --max-line-length 80 .
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
