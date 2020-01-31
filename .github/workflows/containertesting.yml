@@ -12,7 +12,7 @@ jobs:
         container: [ 'centos:7', 'centos:8', 'fedora:30', 'fedora:31' ]
     steps:
     - uses: actions/checkout@v2
-    - run: cat /etc/centos-release
+    - run: cat /etc/os-release
     - run: |
         yum install -y epel-release;
         yum install -y python-pip;
