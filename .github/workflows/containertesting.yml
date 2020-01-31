@@ -14,9 +14,9 @@ jobs:
     - uses: actions/checkout@v2
     - run: cat /etc/centos-release
     - run: |
-        yum install epel-release;
-        yum install python-pip;
-        yum install python3-pip;
+        yum install -y epel-release;
+        yum install -y python-pip;
+        yum install -y python3-pip;
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
