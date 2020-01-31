@@ -2,7 +2,7 @@
 echo "Hello this is first attempt to run bash script on github actions"
 OS=$(cat /etc/*release | grep ^NAME | tr -d 'NAME="') 
 echo $OS
-if [[ $act = "CentOS Linux" ]]
+if [[ $OS = "CentOS Linux" ]]
 then
     echo "This is centos";
     yum install -y epel-release;
