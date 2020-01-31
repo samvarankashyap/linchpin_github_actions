@@ -17,9 +17,6 @@ jobs:
       run: |
         chmod +x ./runtests.sh
         ./runtests.sh
-    - run: |
-        yum install -y epel-release;
-        yum install -y python3-pip;
     - name: Install dependencies
       run: |
         pip3 install -r requirements.txt
