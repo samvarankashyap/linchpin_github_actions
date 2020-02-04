@@ -10,7 +10,12 @@ echo $VERSION_ID
 
 if [ $VERSION_ID = "8" ]
 then
-    echo "This is centos";
+    echo "This is centos8";
+    yum install -y python3 epel-release which git;
+    yum install -y python3-pip python3-flake8 python3-devel gcc;
+elif [ $VERSION_ID = "7" ]
+then
+    echo "This is centos7";
     yum install -y python3 epel-release which git;
     yum install -y python3-pip python3-flake8 python3-devel gcc;
 else
