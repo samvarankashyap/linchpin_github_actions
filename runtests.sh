@@ -17,7 +17,8 @@ elif [ $VERSION_ID = "7" ]
 then
     echo "This is centos7";
     yum install -y python3 epel-release which git;
-    yum install -y python3-pip python3-flake8 python3-devel gcc;
+    yum install -y python-pip python3-pip python3-devel gcc;
+    pip install flake8;
 else
     echo "This is fedora"
     dnf install -y python3 git;
