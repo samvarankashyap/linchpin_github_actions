@@ -8,7 +8,7 @@ echo $OS
 echo $ID
 echo $VERSION_ID
 
-if [ $OS = "CentOS Linux"] && [ $VERSION_ID = "8" ]
+if [ $VERSION_ID = "8" ]
 then
     echo "This is centos";
     yum install -y python3 epel-release which git;
