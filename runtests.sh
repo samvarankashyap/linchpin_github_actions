@@ -8,13 +8,13 @@ echo $OS
 echo $ID
 echo $VERSION_ID
 
-if [[ $OS = "CentOS Linux" ]]
+if [[ $OS = "CentOS Linux" && $ID = "8"]]
 then
     echo "This is centos";
     yum install -y python3 epel-release which git;
     yum install -y python3-pip python3-flake8 python3-devel gcc;
 else
     echo "This is fedora"
-    yum install -y python3 git;
-    yum install -y python3-pip python3-flake8 python3-devel gcc which;
+    dnf install -y python3 git;
+    dnf install -y python3-pip python3-flake8 python3-devel gcc which;
 fi
