@@ -1,4 +1,4 @@
-name: "Testing container matrix centos"
+name: "multicontainer testing: Testing container matrix"
 
 on: [push]
 
@@ -9,7 +9,7 @@ jobs:
     container: ${{ matrix.container }}
     strategy:
       matrix:
-        container: ['centos:8', 'fedora:30', 'fedora:31' ]
+        container: ['centos:8', 'centos:7', 'fedora:30', 'fedora:31' ]
     steps:
     - uses: actions/checkout@v2
     - run: cat /etc/os-release
