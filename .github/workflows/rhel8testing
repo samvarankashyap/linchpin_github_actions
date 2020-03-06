@@ -1,0 +1,26 @@
+name: "rhel8 testing"
+
+on: [push]
+
+jobs:
+  build:
+    name: Build on ${{matrix.container }}
+    runs-on: ubuntu-latest
+    container: ${{ matrix.container }}
+    strategy:
+      matrix:
+        container: ['roboxes/rhel8:latest']
+    steps:
+    - uses: actions/checkout@v2
+    - run: cat /etc/os-release
+    - name: running a shell script file
+      run: |
+        subscription-manager register --username $RHEL_USERNAME --password $RHEL_PASSWORD
+        dnf update -y
+        subscription-manager unregister
+      env:
+          RHEL_USERNAME: ${{ secrets.RHEL_USERNAME }}
+          RHEL_PASSWORD: ${{ secrets.RHEL_PASSWORD }}
+          
+        
+        
