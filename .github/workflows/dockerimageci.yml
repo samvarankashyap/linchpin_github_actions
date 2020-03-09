@@ -21,7 +21,7 @@ jobs:
     - name: run yum update on centos8 
       run: docker exec libvirt_disco yum update -y
     - name: run script libvirt deps
-      run: docker exec libvirt_disco yum install -y qemu-kvm qemu-img virt-manager libvirt libvirt-python libvirt-client
+      run: docker exec libvirt_disco yum install -y qemu-kvm qemu-img virt-manager libvirt python3-libvirt libvirt-client
     - name: run script libvirt deps
       run: docker exec libvirt_disco yum groupinstall -y virtualization-client virtualization-platform virtualization-tools
 
