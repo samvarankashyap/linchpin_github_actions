@@ -13,11 +13,15 @@ jobs:
     - name: Pull image 
       run: sudo docker pull centos:8
     - name: Run a container
-      run: docker run -d --name libvirt_disco centos:8 tail -f /dev/null
+      run: docker run -d --privileged --name libvirt_disco centos:8 tail -f /dev/null
     - name: Check images pulled
       run: docker ps -a 
     - name: run command on libvirt container
       run: docker exec libvirt_disco cat /etc/os-release 
     - name: run yum update on centos8 
       run: docker exec libvirt_disco yum update -y
+    - name: run script libvirt deps
+      run: docker exec libvirt_disco yum install -y qemu-kvm qemu-img virt-manager libvirt libvirt-python libvirt-client
+    - name: run script libvirt deps
+      run: docker exec libvirt_disco yum groupinstall -y virtualization-client virtualization-platform virtualization-tools
 
